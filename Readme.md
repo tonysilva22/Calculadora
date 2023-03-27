@@ -18,3 +18,33 @@ def divisao(num1, num2):
         return "Erro: divisão por zero"
     else:
         return num1 / num2
+# Função principal da calculadora
+
+def calculadora():
+    operacoes = {
+        "+": soma,
+        "-": subtracao,
+        "*": multiplicacao,
+        "/": divisao
+    }
+
+    while True:
+        # Solicita a operação e os dois números para o usuário
+        operacao = input("Digite a operação (+, -, *, /): ")
+        if operacao not in operacoes:
+            print("Operação inválida!")
+            continue
+        num1 = float(input("Digite o primeiro número: "))
+        num2 = float(input("Digite o segundo número: "))
+
+        # Chama a função correspondente à operação solicitada
+        resultado = operacoes[operacao](num1, num2)
+        print("Resultado: ", resultado)
+
+        # Pergunta ao usuário se deseja continuar calculando
+        continuar = input("Deseja continuar calculando? (S/N): ")
+        if continuar.lower() != "s":
+            break
+
+# Chama a função principal da calculadora
+calculadora()
